@@ -1,0 +1,11 @@
+{
+    "name": "BH1730",
+    "keywords": "BH1730FVC, light, lux, ambient, sensor",
+    "description": "An easy to use library for reading light values from the BH1730 light sensor",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/jancoow/BH1730-Library"
+    },
+    "frameworks": "arduino",
+    "version": "1.0.0"
+}
