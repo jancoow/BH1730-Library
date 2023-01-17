@@ -21,7 +21,7 @@ BH1730::BH1730() {}
  * Configure sensor
  */
 bool BH1730::begin() {
-  Wire.begin();
+  // Wire.begin();
 
   // Verify if there is a BH1730 on this address
   if((read8(BH1730_REG_PART_ID) >> 4) != BH1730_PART_NUMBER){
@@ -123,14 +123,14 @@ uint8_t BH1730::read8(uint8_t a) {
   #endif
     Wire.endTransmission();
     
-    Wire.beginTransmission(BH1730_ADDR); 
+    // Wire.beginTransmission(BH1730_ADDR); 
     Wire.requestFrom(BH1730_ADDR, 1); // Wait for 1 byte
   #if (ARDUINO >= 100)
     ret = Wire.read();
   #else
     ret = Wire.receive(); 
   #endif
-    Wire.endTransmission(); 
+    // Wire.endTransmission(); 
 
   return ret;
 }
@@ -146,7 +146,7 @@ uint16_t BH1730::read16(uint8_t a) {
   #endif
     Wire.endTransmission();
     
-    Wire.beginTransmission(BH1730_ADDR);
+    // Wire.beginTransmission(BH1730_ADDR);
     Wire.requestFrom(BH1730_ADDR, 2); // Wait for 2 bytes
   #if (ARDUINO >= 100)
     ret = Wire.read(); // receive LOW DATA first
@@ -155,7 +155,7 @@ uint16_t BH1730::read16(uint8_t a) {
     ret = Wire.receive(); // receive LOW DATA first
     ret |= (Wire.receive() << 8); // receive HIGH DATA and shift to the left
   #endif
-    Wire.endTransmission(); 
+    // Wire.endTransmission(); 
 
   return ret;
 }
